@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include<string.h>
+
+
+typedef struct conj{
+    int size;
+    int *elementos;
+
+}conj;
+
+void zerar(conj c,int x){
+    for(int i = 0;i < c.size;i++){
+        c.elementos[i] = 0;
+    }
+}
+void input(conj c,int x){
+    for(int i = 0; i < c.size;i++){
+        if(c.elementos[i] == 0){
+            c.elementos[i] = x;
+            break;
+        }
+    }
+}
+
+conj adc(conj a,conj b){
+    conj x;
+    int n = b.size;
+    if(n < a.size){
+        n = a.size;
+    }
+    for(int i = 0;i < n;i++){
+        x.elementos[i] = a.elementos[i] + b.elementos[i];
+    }
+    return x;
+}
+
+conj uniao(conj a,conj b){
+    conj x;
+    int n = b.size;
+    x.size = 2*n;
+    for(int i = 0;i < n;i++){
+        x.elementos[i] = a.elementos[i];
+    }
+    for(int i = n;i < 2*n;i++){
+        x.elementos[i] = b.elementos[i];
+    }
+    return x;
+}
+
+conj intersec(conj a,conj b){
+    conj x;
+    int n = a.size;
+    int q;
+    for(int i = 0;i < n;i++){
+        if(a.elementos[i] == b.elementos[i]){
+            q++;
+        }
+    }
+    x.size = q;
+    for(int i = 0;i < q;i++){
+        if(a.elementos[i] == b.elementos[i]){
+            x.elementos[i] = a.elementos[i];
+        }
+    }
+    return x;
+}
+
+
+int main(){
+    /* \n;||(or) e &&(and)*/
+
+
+
+
+
+
+
+
+
+    return 0;
+
+}
+
